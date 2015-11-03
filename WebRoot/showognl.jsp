@@ -134,14 +134,49 @@
 						<td><s:property value="#y.odd"/></td>
 						<td><s:property value="#y.even"/></td>	
 						<td><s:property value="#y.first"/></td>	
-						<td><s:property value="#y.isLast()"/></td>	
-						<td><s:property value="#y.getCount()"/></td>	
+						<td><br></td>	
+						<td><br></td>	
 							
 					</tr>
 				</s:else>
 				</s:iterator>	
 		</table>
+		<hr />
 		
+		<h5>if elseif else</h5>
+		<% request.setAttribute("aa",0); %>
+		<s:if test="#request.aa>=0 && #request.aa<4">
+				在0到4之间；
+		</s:if>
+		<s:elseif test="#request.aa>=4 && #request.aa<8">
+				在4到8之间；
+		</s:elseif>
+		<s:else>
+				大于8或者小于0；
+		</s:else>
+		<hr />
+		
+		<h5>url</h5>
+		<s:url value="www.baidu.com"></s:url>
+		<s:set name="myurl" value="www.sina.com"></s:set>
+		<s:url value="#myurl"></s:url>
+		<s:url value="%{#myurl}"></s:url>
+		
+		
+		<% request.setAttribute("aa","sss"); %>
+		<s:url action="ognlAction" namespace="/">
+				<s:param name="aa" value="#request.aa"></s:param>
+				<s:param name="id">12</s:param>
+		</s:url>
+		<hr />
+		
+		<h5>list checkbox</h5>
+		<s:checkboxlist name="checkbox1" list="{'游戏','看书','编程','电影','音乐','旅行'}" value="{'看书','编程'}"></s:checkboxlist>
+		<hr />
+		
+		<h5>map checkbox</h5>
+		<s:checkboxlist name="checkbox2" list="#{1:'游戏',2:'看书',3:'编程',4:'电影',5:'音乐',6:'旅行'}" listkey="key" listvalue="value" value="{2,3}"></s:checkboxlist>
+		<hr />
 		
 		
 		

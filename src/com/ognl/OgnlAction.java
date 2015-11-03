@@ -17,7 +17,6 @@ public class OgnlAction extends ActionSupport {
 	
 	public String execute() {
 		ActionContext ac = ActionContext.getContext();
-		
 		ac.getApplication().put("msg", "application msg.");//put
 		ac.getSession().put("msg", "session msg.");//put
 		
@@ -38,8 +37,6 @@ public class OgnlAction extends ActionSupport {
 		persons.add(person1);
 		persons.add(person2);
 		persons.add(person3);
-		
-		System.out.println(Math.abs(-78));
 		
 		return "success";
 	}
